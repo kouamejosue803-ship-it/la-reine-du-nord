@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="mobile-only.js"></script>
+<title>Le parcours 2026 · La Reine du Nord</title>
+<meta name="description" content="Le parcours 2026 de Paris-Roubaix Femmes : 143,1 km de Denain à Roubaix, les 20 secteurs pavés et les lieux-dits.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<canvas id="pavesBg" aria-hidden="true"></canvas>
+<div class="pave-meter" aria-hidden="true"><i></i>Page pavée à&nbsp;<span id="paveCount">0</span>&nbsp;%</div>
+<div class="util" role="navigation" aria-label="Liens rapides"><div class="wrap"><a href="elles.html">Paris-Roubaix Femmes</a><a href="parcours.html" aria-current="page">Parcours 2026</a><a href="ecart.html">L'écart en chiffres</a><a href="arrivee.html">Vélodrome et trophée</a><a href="palmares.html">Palmarès</a><a href="jeu.html">Jouer en différé</a><span class="lang">Français</span></div></div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="La Reine du Nord, accueil"><span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M4 11l6 5 6-9 6 9 6-5-2.5 13h-19z"/><rect x="6.5" y="25" width="19" height="3.2" rx="1.4"/></svg></span><span class="logo-word">La Reine <b>du Nord</b></span></a>
+    <nav class="main" aria-label="Navigation principale"><a href="la-course.html">La course</a><a href="parcours.html" aria-current="page">Le parcours</a><a href="paves.html">Les pavés</a><a href="elles.html">Elles</a><a href="palmares.html">Palmarès</a><a href="le-jeu.html">Le jeu</a></nav>
+    <div class="hdr-right">
+      <a class="hdr-play" href="jeu.html">Jouer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <button class="hdr-menu" id="menuBtn" aria-expanded="false" aria-controls="mobileNav" aria-label="Ouvrir le menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Menu"><a href="index.html">Accueil</a><a href="la-course.html">La course</a><a href="parcours.html" aria-current="page">Le parcours</a><a href="paves.html">Les pavés</a><a href="elles.html">Elles</a><a href="palmares.html">Palmarès</a><a href="le-jeu.html">Le jeu</a><a href="ecart.html">L'écart en chiffres</a><a href="arrivee.html">Vélodrome et trophée</a></nav>
+</header>
+<main>
+<div class="wrap crumbs"><a href="index.html">Accueil</a><span>›</span>Le parcours 2026</div><div class="page-hero"><div class="wrap">
+  <div><div class="eyebrow">Paris-Roubaix Femmes · 12 avril 2026</div><h1 class="h-xxl">Le parcours<br>2026</h1></div>
+  <p class="lead">Départ de Denain, arrivée au vélodrome André-Pétrieux. Trois secteurs pavés de plus qu'en 2025, et un final identique à celui des hommes sur les 17 derniers secteurs.</p>
+</div></div>
+<section style="padding-top:0"><div class="wrap">
+  <div class="stats" style="background:rgba(255,255,255,.92)">
+    <div class="stat"><b>143,1</b><span>kilomètres</span></div>
+    <div class="stat"><b>20</b><span>secteurs pavés</span></div>
+    <div class="stat"><b>33,7</b><span>km de pavés, un record pour la course</span></div>
+    <div class="stat"><b>17</b><span>secteurs communs avec les hommes</span></div>
+  </div>
+  <div class="route-grid">
+    <div class="route-map"><canvas data-art="carte" aria-label="Tracé schématique de Denain à Roubaix avec les secteurs pavés" role="img"></canvas></div>
+    <div class="panel prose">
+      <h3 style="margin-top:0">Ce qui change en 2026</h3>
+      <p>Le parcours féminin perd 5 km par rapport à 2025, mais gagne trois secteurs pavés, dont Haveluy à Wallers, un quatre étoiles avec un virage à angle droit en son milieu. Au total, 4,5 km de pavés en plus.</p>
+      <p>Les femmes ne passent pas par la Trouée d'Arenberg, réservée au parcours des hommes. À partir du secteur 17, elles empruntent exactement les mêmes pavés.</p>
+      <div class="btns"><a class="btn-pill btn-dark" href="paves.html">Comprendre les étoiles <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </div>
+  </div>
+</div></section>
+<section style="padding-top:24px" aria-labelledby="secteurs"><div class="wrap">
+  <div class="sec-head"><h2 class="h-l" id="secteurs">Les 20 secteurs</h2><p>Numérotés à rebours, du premier rencontré (20) au dernier avant le vélodrome (1). Le secteur 8 se court en deux morceaux.</p></div>
+  <div class="table-wrap"><table class="table"><thead><tr><th>N°</th><th>Secteur</th><th>Début</th><th>Longueur</th><th>Difficulté</th></tr></thead><tbody><tr><td class="n">20</td><td><b>Solesmes à Haussy</b></td><td class="num">km 29,3</td><td class="num">800 m</td><td class="stars">★★</td></tr><tr><td class="n">19</td><td><b>Saulzoir à Verchain-Maugré</b></td><td class="num">km 36,1</td><td class="num">1 200 m</td><td class="stars">★★</td></tr><tr><td class="n">18</td><td><b>Haveluy à Wallers</b></td><td class="num">km 52,4</td><td class="num">2 500 m</td><td class="stars">★★★★</td></tr><tr><td class="n">17</td><td><b>Hornaing à Wandignies</b></td><td class="num">km 60,7</td><td class="num">3 700 m</td><td class="stars">★★★★</td></tr><tr><td class="n">16</td><td><b>Warlaing à Brillon</b></td><td class="num">km 68,1</td><td class="num">2 400 m</td><td class="stars">★★★</td></tr><tr><td class="n">15</td><td><b>Tilloy à Sars-et-Rosières</b></td><td class="num">km 71,6</td><td class="num">2 400 m</td><td class="stars">★★★★</td></tr><tr><td class="n">14</td><td><b>Beuvry-la-Forêt à Orchies</b></td><td class="num">km 77,9</td><td class="num">1 400 m</td><td class="stars">★★★</td></tr><tr><td class="n">13</td><td><b>Orchies</b></td><td class="num">km 83,0</td><td class="num">1 700 m</td><td class="stars">★★★</td></tr><tr><td class="n">12</td><td><b>Auchy-lez-Orchies à Bersée</b></td><td class="num">km 89,1</td><td class="num">2 700 m</td><td class="stars">★★★★</td></tr><tr><td class="n">11</td><td><b>Mons-en-Pévèle</b></td><td class="num">km 94,5</td><td class="num">3 000 m</td><td class="stars">★★★★★</td></tr><tr><td class="n">10</td><td><b>Mérignies à Avelin</b></td><td class="num">km 100,5</td><td class="num">700 m</td><td class="stars">★★</td></tr><tr><td class="n">9</td><td><b>Pont-Thibault à Ennevelin</b></td><td class="num">km 103,9</td><td class="num">1 400 m</td><td class="stars">★★★</td></tr><tr><td class="n">8</td><td><b>Templeuve – L&#x27;Épinette</b></td><td class="num">km 109,3</td><td class="num">200 m</td><td class="stars">★</td></tr><tr><td class="n">8</td><td><b>Templeuve – Moulin-de-Vertain</b></td><td class="num">km 109,8</td><td class="num">500 m</td><td class="stars">★★</td></tr><tr><td class="n">7</td><td><b>Cysoing à Bourghelles</b></td><td class="num">km 116,3</td><td class="num">1 300 m</td><td class="stars">★★★</td></tr><tr><td class="n">6</td><td><b>Bourghelles à Wannehain</b></td><td class="num">km 118,8</td><td class="num">1 100 m</td><td class="stars">★★★</td></tr><tr><td class="n">5</td><td><b>Camphin-en-Pévèle</b></td><td class="num">km 123,2</td><td class="num">1 800 m</td><td class="stars">★★★★</td></tr><tr><td class="n">4</td><td><b>Carrefour de l&#x27;Arbre</b></td><td class="num">km 126,0</td><td class="num">2 100 m</td><td class="stars">★★★★★</td></tr><tr><td class="n">3</td><td><b>Gruson</b></td><td class="num">km 128,3</td><td class="num">1 100 m</td><td class="stars">★★</td></tr><tr><td class="n">2</td><td><b>Willems à Hem</b></td><td class="num">km 134,9</td><td class="num">1 400 m</td><td class="stars">★★</td></tr><tr><td class="n">1</td><td><b>Roubaix – Espace Charles Crupelandt</b></td><td class="num">km 141,7</td><td class="num">300 m</td><td class="stars">★</td></tr></tbody></table></div>
+  <p style="font-size:13px;color:var(--muted);margin-top:10px">Source : A.S.O., via Cyclingnews (kilomètre de début calculé à partir des kilomètres restants annoncés).</p>
+</div></section>
+<section aria-labelledby="lieux"><div class="wrap">
+  <div class="sec-head"><h2 class="h-l" id="lieux">Sur la route</h2><p>Quelques lieux qu'on traverse entre Denain et Roubaix.</p></div>
+  <div class="gallery">
+    <div><figure class="photo"><img src="photos/denain.jpg" alt="La mairie de Denain" loading="lazy"><figcaption>Photo Ottaviani, Wikimedia Commons, CC BY-SA 3.0 (recadrée)</figcaption></figure><h3>Denain</h3><p>La ville de départ. 122 coureuses au départ en 2026.</p></div>
+    <div><figure class="photo"><img src="photos/haveluy.jpg" alt="Panneau d&#x27;entrée de Haveluy" loading="lazy"><figcaption>Photo Havang(nl), Wikimedia Commons, CC0</figcaption></figure><h3>Haveluy</h3><p>Le secteur 18, Haveluy à Wallers, fait son entrée dans la course féminine.</p></div>
+    <div><figure class="photo"><img src="photos/hornaing.jpg" alt="Panneau d&#x27;entrée de Hornaing" loading="lazy"><figcaption>Photo Pierre André, Wikimedia Commons, CC BY-SA 4.0 (recadrée)</figcaption></figure><h3>Hornaing</h3><p>Point de départ du secteur 17, le plus long du parcours : 3 700 m.</p></div>
+    <div><figure class="photo"><img src="photos/moulin-vertain.jpg" alt="Le moulin de Vertain à Templeuve" loading="lazy"><figcaption>Photo Pierre André Leclercq, Wikimedia Commons, CC BY-SA 4.0 (recadrée)</figcaption></figure><h3>Le moulin de Vertain</h3><p>Les coureuses passent à son pied sur 500 m de pavés, à Templeuve.</p></div>
+    <div><figure class="photo"><img src="photos/crupelandt.jpg" alt="L&#x27;Espace Charles Crupelandt à Roubaix" loading="lazy"><figcaption>Photo Hoebele, Wikimedia Commons, CC BY-SA 4.0 (recadrée)</figcaption></figure><h3>Espace Crupelandt</h3><p>Les 300 derniers mètres de pavés, dédiés au seul vainqueur né à Roubaix.</p></div>
+    <div><figure class="photo"><img src="photos/velodrome.jpg" alt="Le vélodrome André-Pétrieux" loading="lazy"><figcaption>Photo Nicola, Wikimedia Commons, CC BY-SA 3.0 (recadrée)</figcaption></figure><h3>Le vélodrome</h3><p>La ligne d'arrivée, sur la piste en béton du vélodrome de Roubaix.</p></div>
+  </div>
+</div></section>
+<section aria-labelledby="also"><div class="wrap"><div class="sec-head"><h2 class="h-l" id="also">À voir aussi</h2></div><div class="cards3"><a class="link-card" href="paves.html"><img src="photos/carrefour-arbre.jpg" alt="" loading="lazy"><div class="t"><h3>Les pavés</h3><p>Comment on classe un secteur, et les trois qui font la course.</p><span class="go">Découvrir →</span></div></a><a class="link-card" href="arrivee.html"><img src="photos/velodrome.jpg" alt="" loading="lazy"><div class="t"><h3>Vélodrome et trophée</h3><p>L'arrivée sur la piste de Roubaix, et un pavé en guise de coupe.</p><span class="go">Découvrir →</span></div></a><a class="link-card" href="le-jeu.html"><canvas data-art="jeu" aria-hidden="true"></canvas><div class="t"><h3>Le jeu</h3><p>Roule sur le vrai parcours, avec les pros en hologramme et 15 minutes de différé.</p><span class="go">Découvrir →</span></div></a></div></div></section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <div><a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M4 11l6 5 6-9 6 9 6-5-2.5 13h-19z"/><rect x="6.5" y="25" width="19" height="3.2" rx="1.4"/></svg></span><span class="logo-word">La Reine <b>du Nord</b></span></a><p style="margin:16px 0 0;max-width:260px">L'Enfer du Nord se court aussi au féminin. Donner de la visibilité à Paris-Roubaix Femmes, et à l'écart qui reste à combler.</p><span class="prl full f-mark" role="img" aria-label="Paris-Roubaix, Hauts-de-France"></span></div>
+      <div><h5>La course</h5><ul><li><a href="la-course.html">Histoire de Paris-Roubaix</a></li><li><a href="parcours.html">Parcours 2026</a></li><li><a href="paves.html">Les secteurs pavés</a></li><li><a href="arrivee.html">Vélodrome et trophée</a></li></ul></div>
+      <div><h5>Elles</h5><ul><li><a href="elles.html">Les gagnantes</a></li><li><a href="ecart.html">L'écart en chiffres</a></li><li><a href="palmares.html#femmes">Palmarès féminin</a></li></ul></div>
+      <div><h5>Le jeu</h5><ul><li><a href="le-jeu.html">Comment ça marche</a></li><li><a href="jeu.html">Jouer</a></li></ul></div>
+      <div><h5>Le projet</h5><ul><li>Projet étudiant</li><li>Site fictif</li></ul></div>
+    </div>
+    <div class="f-src">
+      Sources : <a href="https://www.paris-roubaix-femmes.fr/en/news/2026/stage-1/sensational-koch-beats-vos-and-pfp-for-roubaix-glory/997">paris-roubaix-femmes.fr</a> ·
+      <a href="https://www.cyclingnews.com/pro-cycling/womens-cycling/toughest-paris-roubaix-femmes-route-yet-unveiled-featuring-more-cobbles-and-three-new-sectors-for-2026/">Cyclingnews</a> ·
+      <a href="https://www.tour-magazin.de/fr/paris-roubaix-france/lexique-du-cyclisme-10-choses-a-savoir-sur-paris-roubaix/">Tour Magazin</a> ·
+      <a href="https://en.wikipedia.org/wiki/Paris%E2%80%93Roubaix_Femmes">Wikipedia</a> ·
+      <a href="https://www.parismatch.be/actualites/sport/2026/04/12/cyclisme-wout-van-aert-remporte-son-premier-paris-roubaix-devant-tadej-pogacar-3H2WKHQLJZF2TKGWSVUHKELG44/">Paris Match Belgique</a>.
+      Photos : Wikimedia Commons (auteurs et licences sous chaque photo). Les illustrations sont des créations graphiques.
+    </div>
+    <div class="f-bot"><span>Projet étudiant fictif, conçu pour l'édition 2027 · non affilié à A.S.O., à Paris-Roubaix ni au CIO.</span><span>Les données de course datent d'avril 2026.</span></div>
+  </div>
+</footer>
+<script src="site.js"></script>
+</body>
+</html>

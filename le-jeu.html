@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="mobile-only.js"></script>
+<title>Le jeu · La Reine du Nord</title>
+<meta name="description" content="La Reine du Nord, le jeu : roule sur le parcours de Paris-Roubaix Femmes avec les pros en hologramme, 15 minutes après le direct.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<canvas id="pavesBg" aria-hidden="true"></canvas>
+<div class="pave-meter" aria-hidden="true"><i></i>Page pavée à&nbsp;<span id="paveCount">0</span>&nbsp;%</div>
+<div class="util" role="navigation" aria-label="Liens rapides"><div class="wrap"><a href="elles.html">Paris-Roubaix Femmes</a><a href="parcours.html">Parcours 2026</a><a href="ecart.html">L'écart en chiffres</a><a href="arrivee.html">Vélodrome et trophée</a><a href="palmares.html">Palmarès</a><a href="jeu.html">Jouer en différé</a><span class="lang">Français</span></div></div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="La Reine du Nord, accueil"><span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M4 11l6 5 6-9 6 9 6-5-2.5 13h-19z"/><rect x="6.5" y="25" width="19" height="3.2" rx="1.4"/></svg></span><span class="logo-word">La Reine <b>du Nord</b></span></a>
+    <nav class="main" aria-label="Navigation principale"><a href="la-course.html">La course</a><a href="parcours.html">Le parcours</a><a href="paves.html">Les pavés</a><a href="elles.html">Elles</a><a href="palmares.html">Palmarès</a><a href="le-jeu.html" aria-current="page">Le jeu</a></nav>
+    <div class="hdr-right">
+      <a class="hdr-play" href="jeu.html">Jouer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <button class="hdr-menu" id="menuBtn" aria-expanded="false" aria-controls="mobileNav" aria-label="Ouvrir le menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Menu"><a href="index.html">Accueil</a><a href="la-course.html">La course</a><a href="parcours.html">Le parcours</a><a href="paves.html">Les pavés</a><a href="elles.html">Elles</a><a href="palmares.html">Palmarès</a><a href="le-jeu.html" aria-current="page">Le jeu</a><a href="ecart.html">L'écart en chiffres</a><a href="arrivee.html">Vélodrome et trophée</a></nav>
+</header>
+<main>
+<div class="wrap crumbs"><a href="index.html">Accueil</a><span>›</span>Le jeu</div><div class="page-hero"><div class="wrap">
+  <div><div class="eyebrow">Course connectée</div><h1 class="h-xxl">La Reine<br>du Nord</h1></div>
+  <p class="lead">Pendant la retransmission, tu roules sur le vrai parcours, 15 minutes derrière le direct. Les dix premières de l'édition 2026 roulent à côté de toi en hologramme.</p>
+</div></div>
+<section style="padding-top:0"><div class="wrap">
+  <div class="game-band">
+    <div class="game-art"><canvas data-art="jeu-grand" aria-hidden="true"></canvas></div>
+    <div class="game-txt">
+      <div class="eyebrow">Ce qui t'attend</div>
+      <ul class="feat">
+        <li><i>1</i><span>Gère ton énergie, ton hydratation et ton alimentation : au-dessus de ton seuil, l'énergie fond.</span></li>
+        <li><i>2</i><span>Les pros roulent en hologramme, avec leur visage et leur nom au-dessus de la tête.</span></li>
+        <li><i>3</i><span>Cale-toi dans la roue d'une autre cycliste : l'aspiration te fait récupérer.</span></li>
+        <li><i>4</i><span>Passe les 20 vrais secteurs pavés et découvre les lieux-dits en photo.</span></li>
+        <li><i>5</i><span>Boutique des Reines : des cartes de gagnantes à débloquer pour rouler avec leur tenue de victoire. 70 % du prix reviennent à la coureuse (paiement simulé dans la maquette).</span></li>
+        <li><i>6</i><span>Les partenaires officiels de la course sont sur les panneaux du bord de route et sur les arches.</span></li>
+      </ul>
+      <p style="margin:14px 0 0;font-weight:700">Le jeu, la boutique et la rémunération des coureuses sont prévus pour l'édition 2027 de Paris-Roubaix Femmes. La démo rejoue l'édition 2026.</p>
+      <div class="row"><a class="btn-pill btn-accent" href="jeu.html">Lancer le jeu <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </div>
+  </div>
+</div></section>
+<section aria-labelledby="cmd"><div class="wrap two">
+  <div>
+    <div class="sec-head"><h2 class="h-l" id="cmd">Les commandes</h2></div>
+    <div class="controls">
+      <kbd>← →</kbd><span>tenir ta trajectoire, surtout dans les virages</span>
+      <kbd>↑ ↓</kbd><span>régler ta vitesse (ou les boutons + et −)</span>
+      <kbd>C</kbd><span>changer de caméra : TV, POV embarqué, vue du dessus</span>
+      <kbd>B</kbd><span>prendre un bidon au ravitaillement</span>
+      <kbd>M</kbd><span>prendre une musette</span>
+      <kbd>Espace</kbd><span>pause</span>
+    </div>
+  </div>
+  <div class="panel prose">
+    <h3 style="margin-top:0">Pourquoi 15 minutes de différé</h3>
+    <p>Le temps de consolider les positions GPS des coureuses avant de les afficher en hologramme. Tu roules avec elles, mais jamais devant le direct.</p>
+    <h3>Ton objectif</h3>
+    <p>Arriver au vélodrome, grimper au classement des 12 384 joueurs, et te mesurer au temps de Franziska Koch : 3 h 30 min 16 s.</p>
+    <div class="btns"><a class="btn-pill btn-dark" href="jeu.html">Jouer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </div>
+</div></section>
+<section aria-labelledby="also"><div class="wrap"><div class="sec-head"><h2 class="h-l" id="also">À voir aussi</h2></div><div class="cards3"><a class="link-card" href="parcours.html"><canvas data-art="parcours" aria-hidden="true"></canvas><div class="t"><h3>Le parcours 2026</h3><p>143,1 km de Denain à Roubaix, les 20 secteurs et les lieux-dits.</p><span class="go">Découvrir →</span></div></a><a class="link-card" href="paves.html"><img src="photos/carrefour-arbre.jpg" alt="" loading="lazy"><div class="t"><h3>Les pavés</h3><p>Comment on classe un secteur, et les trois qui font la course.</p><span class="go">Découvrir →</span></div></a><a class="link-card" href="elles.html"><canvas data-art="elles" aria-hidden="true"></canvas><div class="t"><h3>Elles</h3><p>Six éditions, six gagnantes : les reines des pavés depuis 2021.</p><span class="go">Découvrir →</span></div></a></div></div></section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <div><a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M4 11l6 5 6-9 6 9 6-5-2.5 13h-19z"/><rect x="6.5" y="25" width="19" height="3.2" rx="1.4"/></svg></span><span class="logo-word">La Reine <b>du Nord</b></span></a><p style="margin:16px 0 0;max-width:260px">L'Enfer du Nord se court aussi au féminin. Donner de la visibilité à Paris-Roubaix Femmes, et à l'écart qui reste à combler.</p><span class="prl full f-mark" role="img" aria-label="Paris-Roubaix, Hauts-de-France"></span></div>
+      <div><h5>La course</h5><ul><li><a href="la-course.html">Histoire de Paris-Roubaix</a></li><li><a href="parcours.html">Parcours 2026</a></li><li><a href="paves.html">Les secteurs pavés</a></li><li><a href="arrivee.html">Vélodrome et trophée</a></li></ul></div>
+      <div><h5>Elles</h5><ul><li><a href="elles.html">Les gagnantes</a></li><li><a href="ecart.html">L'écart en chiffres</a></li><li><a href="palmares.html#femmes">Palmarès féminin</a></li></ul></div>
+      <div><h5>Le jeu</h5><ul><li><a href="le-jeu.html">Comment ça marche</a></li><li><a href="jeu.html">Jouer</a></li></ul></div>
+      <div><h5>Le projet</h5><ul><li>Projet étudiant</li><li>Site fictif</li></ul></div>
+    </div>
+    <div class="f-src">
+      Sources : <a href="https://www.paris-roubaix-femmes.fr/en/news/2026/stage-1/sensational-koch-beats-vos-and-pfp-for-roubaix-glory/997">paris-roubaix-femmes.fr</a> ·
+      <a href="https://www.cyclingnews.com/pro-cycling/womens-cycling/toughest-paris-roubaix-femmes-route-yet-unveiled-featuring-more-cobbles-and-three-new-sectors-for-2026/">Cyclingnews</a> ·
+      <a href="https://www.tour-magazin.de/fr/paris-roubaix-france/lexique-du-cyclisme-10-choses-a-savoir-sur-paris-roubaix/">Tour Magazin</a> ·
+      <a href="https://en.wikipedia.org/wiki/Paris%E2%80%93Roubaix_Femmes">Wikipedia</a> ·
+      <a href="https://www.parismatch.be/actualites/sport/2026/04/12/cyclisme-wout-van-aert-remporte-son-premier-paris-roubaix-devant-tadej-pogacar-3H2WKHQLJZF2TKGWSVUHKELG44/">Paris Match Belgique</a>.
+      Photos : Wikimedia Commons (auteurs et licences sous chaque photo). Les illustrations sont des créations graphiques.
+    </div>
+    <div class="f-bot"><span>Projet étudiant fictif, conçu pour l'édition 2027 · non affilié à A.S.O., à Paris-Roubaix ni au CIO.</span><span>Les données de course datent d'avril 2026.</span></div>
+  </div>
+</footer>
+<script src="site.js"></script>
+</body>
+</html>

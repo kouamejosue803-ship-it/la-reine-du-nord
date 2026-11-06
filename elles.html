@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="mobile-only.js"></script>
+<title>Elles · La Reine du Nord</title>
+<meta name="description" content="Paris-Roubaix Femmes : les six gagnantes depuis 2021 et les dates qui ont compté.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<canvas id="pavesBg" aria-hidden="true"></canvas>
+<div class="pave-meter" aria-hidden="true"><i></i>Page pavée à&nbsp;<span id="paveCount">0</span>&nbsp;%</div>
+<div class="util" role="navigation" aria-label="Liens rapides"><div class="wrap"><a href="elles.html" aria-current="page">Paris-Roubaix Femmes</a><a href="parcours.html">Parcours 2026</a><a href="ecart.html">L'écart en chiffres</a><a href="arrivee.html">Vélodrome et trophée</a><a href="palmares.html">Palmarès</a><a href="jeu.html">Jouer en différé</a><span class="lang">Français</span></div></div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="La Reine du Nord, accueil"><span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M4 11l6 5 6-9 6 9 6-5-2.5 13h-19z"/><rect x="6.5" y="25" width="19" height="3.2" rx="1.4"/></svg></span><span class="logo-word">La Reine <b>du Nord</b></span></a>
+    <nav class="main" aria-label="Navigation principale"><a href="la-course.html">La course</a><a href="parcours.html">Le parcours</a><a href="paves.html">Les pavés</a><a href="elles.html" aria-current="page">Elles</a><a href="palmares.html">Palmarès</a><a href="le-jeu.html">Le jeu</a></nav>
+    <div class="hdr-right">
+      <a class="hdr-play" href="jeu.html">Jouer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <button class="hdr-menu" id="menuBtn" aria-expanded="false" aria-controls="mobileNav" aria-label="Ouvrir le menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Menu"><a href="index.html">Accueil</a><a href="la-course.html">La course</a><a href="parcours.html">Le parcours</a><a href="paves.html">Les pavés</a><a href="elles.html" aria-current="page">Elles</a><a href="palmares.html">Palmarès</a><a href="le-jeu.html">Le jeu</a><a href="ecart.html">L'écart en chiffres</a><a href="arrivee.html">Vélodrome et trophée</a></nav>
+</header>
+<main>
+
+<section class="elles" aria-labelledby="elles-t" style="padding-top:0">
+  <div class="wrap crumbs" style="padding-top:28px;color:#9EA1A9"><a href="index.html" style="color:#9EA1A9">Accueil</a><span>›</span>Elles</div>
+  <div class="wrap" style="padding-top:28px">
+    <div class="elles-head">
+      <div><div class="pr-lock eyebrow-logo"><span class="prl" aria-hidden="true"></span><span class="vh">Paris-Roubaix </span><span class="fem">Femmes</span></div><h1 class="h-xxl" id="elles-t">Elles<br><span>aussi.</span></h1></div>
+      <p class="lead">Il a fallu attendre 117 éditions masculines avant qu'un peloton féminin roule sur les pavés de Roubaix. Depuis 2021, chaque édition a couronné une nouvelle gagnante, et l'écart avec la course des hommes se réduit, sans avoir disparu.</p>
+    </div>
+    <nav class="sub-nav" aria-label="Pages liées"><a href="ecart.html">L'écart en chiffres</a><a href="palmares.html#femmes">Palmarès féminin</a><a href="arrivee.html#trophee">Le trophée</a><a href="jeu.html">Rouler avec elles</a></nav>
+    <h2 class="h-l">Six éditions,<br>six gagnantes</h2>
+    <div class="winners" id="winners"></div>
+    <div class="timeline">
+      <div class="tl"><b>1896</b><h4>Première course masculine</h4><p>Paris-Roubaix naît chez les hommes. Le peloton féminin attendra plus d'un siècle.</p></div>
+      <div class="tl"><b>2021</b><h4>Première édition féminine</h4><p>En octobre, Lizzie Deignan s'impose seule. Sa prime : 1 535 €, contre 30 000 € pour le vainqueur.</p></div>
+      <div class="tl"><b>2022</b><h4>La prime est relevée</h4><p>Après les critiques, la prime de la gagnante passe à 20 000 €.</p></div>
+      <div class="tl"><b>2026</b><h4>Le même jour</h4><p>Pour la première fois, femmes et hommes courent le même dimanche. Ce sont les femmes qui concluent la journée au vélodrome.</p></div>
+    </div>
+    <div class="elles-cta"><h3 class="h-m">Roule avec elles, en différé de 15 minutes</h3><a class="btn-pill" href="jeu.html">Jouer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </div>
+</section>
+<section aria-labelledby="also"><div class="wrap"><div class="sec-head"><h2 class="h-l" id="also">À voir aussi</h2></div><div class="cards3"><a class="link-card" href="ecart.html"><canvas data-art="ecart" aria-hidden="true"></canvas><div class="t"><h3>L'écart en chiffres</h3><p>Distance, pavés, primes : ce qui sépare encore la course des femmes de celle des hommes.</p><span class="go">Découvrir →</span></div></a><a class="link-card" href="palmares.html"><canvas data-art="trophee" aria-hidden="true"></canvas><div class="t"><h3>Palmarès</h3><p>Toutes les gagnantes et tous les vainqueurs depuis 2021, et les records.</p><span class="go">Découvrir →</span></div></a><a class="link-card" href="arrivee.html"><img src="photos/velodrome.jpg" alt="" loading="lazy"><div class="t"><h3>Vélodrome et trophée</h3><p>L'arrivée sur la piste de Roubaix, et un pavé en guise de coupe.</p><span class="go">Découvrir →</span></div></a></div></div></section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <div><a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M4 11l6 5 6-9 6 9 6-5-2.5 13h-19z"/><rect x="6.5" y="25" width="19" height="3.2" rx="1.4"/></svg></span><span class="logo-word">La Reine <b>du Nord</b></span></a><p style="margin:16px 0 0;max-width:260px">L'Enfer du Nord se court aussi au féminin. Donner de la visibilité à Paris-Roubaix Femmes, et à l'écart qui reste à combler.</p><span class="prl full f-mark" role="img" aria-label="Paris-Roubaix, Hauts-de-France"></span></div>
+      <div><h5>La course</h5><ul><li><a href="la-course.html">Histoire de Paris-Roubaix</a></li><li><a href="parcours.html">Parcours 2026</a></li><li><a href="paves.html">Les secteurs pavés</a></li><li><a href="arrivee.html">Vélodrome et trophée</a></li></ul></div>
+      <div><h5>Elles</h5><ul><li><a href="elles.html">Les gagnantes</a></li><li><a href="ecart.html">L'écart en chiffres</a></li><li><a href="palmares.html#femmes">Palmarès féminin</a></li></ul></div>
+      <div><h5>Le jeu</h5><ul><li><a href="le-jeu.html">Comment ça marche</a></li><li><a href="jeu.html">Jouer</a></li></ul></div>
+      <div><h5>Le projet</h5><ul><li>Projet étudiant</li><li>Site fictif</li></ul></div>
+    </div>
+    <div class="f-src">
+      Sources : <a href="https://www.paris-roubaix-femmes.fr/en/news/2026/stage-1/sensational-koch-beats-vos-and-pfp-for-roubaix-glory/997">paris-roubaix-femmes.fr</a> ·
+      <a href="https://www.cyclingnews.com/pro-cycling/womens-cycling/toughest-paris-roubaix-femmes-route-yet-unveiled-featuring-more-cobbles-and-three-new-sectors-for-2026/">Cyclingnews</a> ·
+      <a href="https://www.tour-magazin.de/fr/paris-roubaix-france/lexique-du-cyclisme-10-choses-a-savoir-sur-paris-roubaix/">Tour Magazin</a> ·
+      <a href="https://en.wikipedia.org/wiki/Paris%E2%80%93Roubaix_Femmes">Wikipedia</a> ·
+      <a href="https://www.parismatch.be/actualites/sport/2026/04/12/cyclisme-wout-van-aert-remporte-son-premier-paris-roubaix-devant-tadej-pogacar-3H2WKHQLJZF2TKGWSVUHKELG44/">Paris Match Belgique</a>.
+      Photos : Wikimedia Commons (auteurs et licences sous chaque photo). Les illustrations sont des créations graphiques.
+    </div>
+    <div class="f-bot"><span>Projet étudiant fictif, conçu pour l'édition 2027 · non affilié à A.S.O., à Paris-Roubaix ni au CIO.</span><span>Les données de course datent d'avril 2026.</span></div>
+  </div>
+</footer>
+<script src="site.js"></script>
+</body>
+</html>
