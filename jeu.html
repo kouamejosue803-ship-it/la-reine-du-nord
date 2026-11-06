@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#8E2A3B">
-<script src="mobile-only.js"></script>
 <title>La Reine du Nord · le jeu</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -393,12 +392,52 @@ kbd{font-family:var(--body);font-weight:800;background:#F3ECE8;border-radius:6px
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
 /* ======================================================================
-   VERSION TÉLÉPHONE : le jeu est pensé pour mobile uniquement.
-   Sur grand écran, mobile-only.js l'affiche dans un cadre de téléphone.
+   ADAPTATION À TOUS LES ÉCRANS
+   Téléphone et tablette (≤ 1100 px) : vue 3D en haut, commandes juste dessous.
+   Ordinateur : grille d'origine en quatre colonnes.
+   Les infos restent un petit bandeau en haut de la vue, sur tous les écrans.
    ====================================================================== */
+.ctl-touch{display:none}
+@media (pointer:coarse){ .ctl-keys,#hints{display:none} .ctl-touch{display:grid} }
+/* Infos (lieu-dit, égalité) : petit bandeau en haut de la vue, on touche pour lire la suite */
+#lieu,#fact{top:56px;left:8px;right:8px;bottom:auto;width:auto;border-radius:16px;cursor:pointer;visibility:hidden;pointer-events:none;transform:translateY(-8px);transition:opacity .3s,transform .3s,visibility 0s .3s}
+#lieu.show,#fact.show{visibility:visible;pointer-events:auto;transition:opacity .3s,transform .3s,visibility 0s}
+#lieu{display:grid;grid-template-columns:72px 1fr;opacity:0}
+#lieu .ph{aspect-ratio:auto;height:100%;min-height:58px}
+#lieu .tag,#lieu .cred,#lieu p,#lieu .st{display:none}
+#lieu .bd{padding:8px 44px 8px 10px;min-width:0}
+#lieu .k{font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#lieu h3{font-size:17px!important;margin:1px 0 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#lieu .bd::after,#fact::after{content:"Touche pour lire la suite";display:block;font-size:10.5px;font-weight:800;color:var(--muted);margin-top:2px}
+#lieu .x{top:50%;right:6px;transform:translateY(-50%);width:36px;height:36px}
+#lieu.open{grid-template-columns:1fr}
+#lieu.open .ph{height:120px}
+#lieu.open .tag,#lieu.open .cred{display:block}
+#lieu.open p{display:block}
+#lieu.open .st{display:flex}
+#lieu.open h3{white-space:normal}
+#lieu.open .x{top:8px;transform:none}
+#lieu.open .bd{padding:10px 12px 12px}
+#lieu.open .bd::after,#fact.open::after{display:none}
+#fact{padding:8px 12px}
+#fact .fact-k{font-size:11px}
+#fact p{font-size:13px;line-height:1.3;margin:2px 0 0;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+#fact small{display:none}
+#fact.open p{-webkit-line-clamp:unset;display:block}
+#fact.open small{display:block;margin-top:4px}
+
+/* Tablette et ordinateur : le bandeau d'infos centré, les pastilles d'état en bas de la vue */
+@media (min-width:760px){
+  #lieu,#fact{top:64px;left:50%;right:auto;width:min(400px,calc(100% - 24px));transform:translate(-50%,-8px)}
+  .cams button{white-space:nowrap}
+  #lieu.show,#fact.show{transform:translate(-50%,0)}
+  #chipsL,#chipsR{top:auto;bottom:70px;max-width:calc(50% - 16px)}
+  .chip{white-space:normal;line-height:1.2}
+}
+
 .menu-btn{display:none}
 .hmenu{display:contents}
-@media (max-width:759px){
+@media (max-width:1100px){
   html,body{height:auto}
   body{overflow-x:hidden;overflow-y:auto;font-size:14px;-webkit-tap-highlight-color:transparent}
   .app{display:block;height:auto;min-height:100%}
@@ -469,33 +508,6 @@ kbd{font-family:var(--body);font-weight:800;background:#F3ECE8;border-radius:6px
   .rv-btns{flex-direction:column;width:100%}
   .rv-btn{justify-content:center;min-height:44px;font-size:13px}
   .rv-btn kbd{display:none}
-
-  /* Infos (lieu-dit, égalité) : petit bandeau en haut de la vue, on touche pour lire la suite */
-  #lieu,#fact{top:56px;left:8px;right:8px;bottom:auto;width:auto;border-radius:16px;cursor:pointer;visibility:hidden;pointer-events:none;transform:translateY(-8px);transition:opacity .3s,transform .3s,visibility 0s .3s}
-  #lieu.show,#fact.show{visibility:visible;pointer-events:auto;transition:opacity .3s,transform .3s,visibility 0s}
-  #lieu{display:grid;grid-template-columns:72px 1fr;opacity:0}
-  #lieu .ph{aspect-ratio:auto;height:100%;min-height:58px}
-  #lieu .tag,#lieu .cred,#lieu p,#lieu .st{display:none}
-  #lieu .bd{padding:8px 44px 8px 10px;min-width:0}
-  #lieu .k{font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  #lieu h3{font-size:17px!important;margin:1px 0 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  #lieu .bd::after,#fact::after{content:"Touche pour lire la suite";display:block;font-size:10.5px;font-weight:800;color:var(--muted);margin-top:2px}
-  #lieu .x{top:50%;right:6px;transform:translateY(-50%);width:36px;height:36px}
-  #lieu.open{grid-template-columns:1fr}
-  #lieu.open .ph{height:120px}
-  #lieu.open .tag,#lieu.open .cred{display:block}
-  #lieu.open p{display:block}
-  #lieu.open .st{display:flex}
-  #lieu.open h3{white-space:normal}
-  #lieu.open .x{top:8px;transform:none}
-  #lieu.open .bd{padding:10px 12px 12px}
-  #lieu.open .bd::after,#fact.open::after{display:none}
-  #fact{padding:8px 12px}
-  #fact .fact-k{font-size:11px}
-  #fact p{font-size:13px;line-height:1.3;margin:2px 0 0;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
-  #fact small{display:none}
-  #fact.open p{-webkit-line-clamp:unset;display:block}
-  #fact.open small{display:block;margin-top:4px}
 
   /* Fenêtres */
   .overlay{padding:10px}
@@ -657,7 +669,13 @@ kbd{font-family:var(--body);font-weight:800;background:#F3ECE8;border-radius:6px
       <div class="field"><span class="fl" id="colLbl">Couleur de ton maillot</span><div class="swatches" role="radiogroup" aria-labelledby="colLbl" id="swatches"></div></div>
       <div class="field"><span class="fl">Ou roule avec la tenue d'une gagnante</span><div class="skin-row"><button class="pill gold-pill" type="button" id="shopBtn2">Boutique des Reines</button><span class="skin-chip" id="skinChip">Aucun skin équipé</span></div></div>
       <div class="field"><span class="fl" id="scaleLbl">Vitesse du temps</span><div class="seg" role="radiogroup" aria-labelledby="scaleLbl" id="scaleSeg"></div></div>
-      <div class="controls-list">
+      <div class="controls-list ctl-keys">
+        <kbd>← →</kbd><span>tenir ta trajectoire dans les virages</span>
+        <kbd>↑ ↓</kbd><span>régler ta vitesse : au-dessus de ton seuil, l'énergie fond</span>
+        <kbd>roue</kbd><span>colle-toi juste derrière une autre cycliste : l'aspiration te fait récupérer</span>
+        <kbd>C</kbd><span>changer de caméra : TV, POV embarqué, vue du dessus</span>
+      </div>
+      <div class="controls-list ctl-touch">
         <kbd>◀ ▶</kbd><span>touche la gauche ou la droite de l'écran pour tenir ta trajectoire dans les virages</span>
         <kbd>+ −</kbd><span>règle ta vitesse : au-dessus de ton seuil, l'énergie fond</span>
         <kbd>roue</kbd><span>colle-toi juste derrière une autre cycliste : l'aspiration te fait récupérer</span>
