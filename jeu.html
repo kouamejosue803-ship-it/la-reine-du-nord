@@ -745,15 +745,17 @@ const CONFIG = {
   players: { total: 12384, mean: 29, sd: 2.9 },
   game: {
     vMax: 52, vStep: 2, vStart: 30,
-    cs: 34, csPave: [1, .92, .88, .84, .80, .76],
-    regen: .010, k1: .006, k2: .04, k3: .06, k4: .25, kAccel: .004,
+    // Difficulté « moyenne » : en gérant bien son effort on tient ~35 km/h seule ;
+    // le podium (≈ 36-37 km/h) demande en plus d'utiliser l'aspiration.
+    cs: 38, csPave: [1, .95, .92, .89, .86, .83],
+    regen: .014, k1: .004, k2: .03, k3: .045, k4: .18, kAccel: .002,
     draftCut: .45,       // aspiration : jusqu'à −45 % d'effort tout près de la roue
     draftRegen: .006,    // + récupération en plus quand on est bien calé
-    paveVmax: [1, .92, .86, .80, .74, .68],
-    hBase: .0025, kH: .0025, paveH: 1.3, kF: .55, paveF: 1.2,
-    critThreshold: 10, critVmax: 18, stopSeconds: 5, stopRecover: 12,
-    collisionSpeed: 5, collisionEnergy: 3,
-    ravitoGain: 40, ravitoMaxSpeed: 30, ravitoMissChance: .5, ravitoLength: 1.5,
+    paveVmax: [1, .94, .89, .84, .79, .74],
+    hBase: .0012, kH: .0012, paveH: 1.3, kF: .35, paveF: 1.2,
+    critThreshold: 10, critVmax: 22, stopSeconds: 3, stopRecover: 25,
+    collisionSpeed: 3, collisionEnergy: 2,
+    ravitoGain: 50, ravitoMaxSpeed: 34, ravitoMissChance: .25, ravitoLength: 2,
     defaultScale: 30
   },
   scales: [ { v:1, label:'Synchro', sub:'×1 direct' }, { v:10, label:'Rapide', sub:'×10' }, { v:30, label:'Démo', sub:'×30 · ~8 min' } ],
@@ -872,7 +874,7 @@ const CONFIG = {
   splitKm: 97.6,
 
   pseudos: ['Mila.K','Sofia_R','Jade.Velo','Nina_59','Kofi.R','Awa.Sprint','Malo.Pavé','Clara.Bidon','VeloLou','Pavé_Queen','Kiki59','Mona.cycle','Ines_Fonce','LaBoucle','Zoé_Watts','Ana.Sprint','CobbleCat','Elsa_NordX','Rayan.bike','Hugo_Pignon','Maëlle.R','Tess_Gravel','Baptiste59','Yasmine.V','Lucie_Rouleuse','Noah.Cadence','Sam.Braquet','Léna_Grimpe','Adam.Roue','Chloé_Pavé','Iris.Velo','Nour_Sprint','Théo.Danseuse','Manon_Cale','Eva.Rayon','Jules_Moyeu','Lina.Boyau','Yanis.Chaîne','Romane.KOM','Ethan_Dérailleur','Salomé.Roule','Aya_Gravel','Tom.Watt','Camille.Cadence','Zélie.Pédale','Max.Sprint','Louna_Nord','Victor.Pavé','Inès.Bordure','Gabin.Roue','Alice_Echappée','Nathan.Bidon','Léa_Vélodrome','Hugo.Flahute','Jeanne.Pavés','Kenza.Watts','Bastien.Roule','Rose_Cyclo','Amir.Pignon','Mathilde.Chrono'],
-  topCountries: ['NED','ITA','FRA'], topAvg: [39.8, 39.4, 39.0],
+  topCountries: ['NED','ITA','FRA'], topAvg: [37.4, 36.6, 35.8],
   teamName: 'Les Pavées', mateAvg: [33.6, 32.4, 31.2, 30.1, 28.8],
 
   facts: {
@@ -1218,7 +1220,7 @@ function buildChunk(ci){
     for (let k = 0; k < maxStars; k++){ const side = k & 1 ? 1 : -1, p = at(s0 + hash(ci, k + 30) * CH, side * (ROAD_C + 2.6)); grp.add(flagPole(p, k)); }
   }
   for (const s of CONFIG.sectors){ const ss = sOf(s.km); if (ss >= s0 && ss < s0 + CH){ const a = arch(ss, `Secteur ${s.n}`, s.name, starStr(s.stars), s.km); archSponsor(a, ss, s.km, 0); grp.add(a); } }
-  for (const r of CONFIG.ravitos){ const ss = sOf(r.km); if (ss >= s0 && ss < s0 + CH) grp.add(arch(ss, 'Ravitaillement', 'Zone de ravito', '1,5 km', r.km, '#2F9A6C')); }
+  for (const r of CONFIG.ravitos){ const ss = sOf(r.km); if (ss >= s0 && ss < s0 + CH) grp.add(arch(ss, 'Ravitaillement', 'Zone de ravito', fmt1(G.ravitoLength) + ' km', r.km, '#2F9A6C')); }
   { const ss = sOf(D - 1); if (ss >= s0 && ss < s0 + CH){ const a = arch(ss, 'Flamme rouge', 'Dernier kilomètre', '1 km', D - 1, '#C9566A'); archSponsor(a, ss, D - 1, 4); grp.add(a); } }
   { const ss = sOf(D - .05); if (ss >= s0 && ss < s0 + CH){ const a = arch(ss, 'Arrivée', 'Vélodrome de Roubaix', '143,1 km', D); archSponsor(a, ss, D, 3); grp.add(a); } }
   { const ss = sOf(0) + 12; if (ss >= s0 && ss < s0 + CH){ const a = arch(ss, 'Départ', 'Denain', '143,1 km', 0); archSponsor(a, ss, 0, 0); grp.add(a); } }
@@ -1638,7 +1640,7 @@ function events(sec){
   if (ravitoAt(S.km) && !S.shown.ravito) showFact('ravito');
   if (S.km >= 100 && !S.shown.km100) showFact('km100');
   let lastL = null; for (const l of CONFIG.lieux) if (!S.lieuxShown[l.id] && S.km >= l.km){ S.lieuxShown[l.id] = true; lastL = l; } if (lastL) showLieu(lastL);
-  for (const k of ['energy','hydra','food']){ const low = S[k] < G.critThreshold; if (low && !S.critShown[k]){ S.critShown[k] = true; flash({ energy:'À bout de forces', food:'Fringale', hydra:'Coup de chaud' }[k], 'Vitesse limitée à 18 km/h'); } if (!low && S[k] > G.critThreshold + 5) S.critShown[k] = false; }
+  for (const k of ['energy','hydra','food']){ const low = S[k] < G.critThreshold; if (low && !S.critShown[k]){ S.critShown[k] = true; flash({ energy:'À bout de forces', food:'Fringale', hydra:'Coup de chaud' }[k], `Vitesse limitée à ${G.critVmax} km/h`); } if (!low && S[k] > G.critThreshold + 5) S.critShown[k] = false; }
   if (S.draft > .75 && !S.shown.draftTip){ S.shown.draftTip = true; flash('Bien calée !', "L'aspiration te fait récupérer"); }
 }
 function takeRavito(type){
@@ -1787,7 +1789,7 @@ function updateChips(){
   if (S.draft > .08) L.push(`<span class="chip draft">Aspiration ${Math.round(S.draft * 100)} %${S.draftLead ? ' · roue de ' + esc(S.draftLead.ref.name) : ''}</span>`);
   if (S.offroad) L.push(`<span class="chip warn">${S.offroad === 2 ? "Dans l'herbe" : 'Sur le bas-côté'} : reviens sur la route</span>`);
   if (Math.abs(curvature(S.sP + 25)) > .009) L.push(`<span class="chip warn">Virage à ${curvature(S.sP + 25) > 0 ? 'gauche' : 'droite'}</span>`);
-  if (crit) L.push(`<span class="chip crit">${crit.label} · max 18 km/h</span>`);
+  if (crit) L.push(`<span class="chip crit">${crit.label} · max ${G.critVmax} km/h</span>`);
   if (S.stopTimer > 0) L.push(`<span class="chip crit">Pied à terre · ${Math.ceil(S.stopTimer)} s</span>`);
   const nr = CONFIG.ravitos.find(r => r.km > S.km && r.km - S.km < 3); if (nr) R.push(`<span class="chip ok">${nr.name} dans ${fmt1(nr.km - S.km)} km</span>`);
   const lead = S.ghosts.reduce((a, g) => g.km > a.km ? g : a, S.ghosts[0]);
@@ -1796,7 +1798,7 @@ function updateChips(){
   if (vis) R.push(`<span class="chip holo">${vis} pro${vis > 1 ? 's' : ''} en vue</span>`);
   $('#chipsL').innerHTML = L.join(''); $('#chipsR').innerHTML = R.join('');
   const rv = ravitoAt(S.km), box = $('#ravito');
-  if (rv && S.state === 'course'){ box.classList.add('show'); $('#rvTitle').textContent = `${rv.name} · ${fmt1(rv.km + G.ravitoLength - S.km)} km pour te servir`; $('#rvBidon').disabled = !!S.taken[rv.km + 'b']; $('#rvMusette').disabled = !!S.taken[rv.km + 'm']; $('#rvHint').textContent = S.v > G.ravitoMaxSpeed ? 'Trop vite : passe sous 30 km/h pour ne pas rater la prise' : 'Bonne vitesse pour attraper la prise'; }
+  if (rv && S.state === 'course'){ box.classList.add('show'); $('#rvTitle').textContent = `${rv.name} · ${fmt1(rv.km + G.ravitoLength - S.km)} km pour te servir`; $('#rvBidon').disabled = !!S.taken[rv.km + 'b']; $('#rvMusette').disabled = !!S.taken[rv.km + 'm']; $('#rvHint').textContent = S.v > G.ravitoMaxSpeed ? 'Trop vite : passe sous 34 km/h pour ne pas rater la prise' : 'Bonne vitesse pour attraper la prise'; }
   else box.classList.remove('show');
 }
 function avatarHTML(g){ return g.photo ? `<span class="av"><img src="${g.photo}" alt=""></span>` : `<span class="av">${initials(g.name)}</span>`; }
